@@ -1,0 +1,35 @@
+ RTU Self Test logs
+
+ Date: 2021-11-09 Time: 10:27:15
+
+ - Hardware Information...
+        Device Model:                           RTU450B/RTU451/MPC453
+        Processor Serial Number:        00000000b989b788
+        Image Version:                  V1.2.2
+        CPU Temperature:                        52.6'C
+
+ - System Voltages Test...
+        Input Voltage #1 Detected
+        Input Voltage #2 Detected
+
+ - RTU LAN Interfaces Test...
+        LAN0:  Detected
+
+ - RTU CAN Interfaces Test...
+        CAN0:            MCP2515 successfully initialized.
+        CAN1:            MCP2515 successfully initialized.
+        CAN BUS0:    CAN0 Transceiver Has No Fualt
+        CAN BUS1:    CAN1 Transceiver Has No Fualt
+
+ - RTU Serial Interface(s) Test...
+        Available Serial Ports: 2
+                RS485 Serial Port : Detected
+                RS232 Serial Port : Detected
+
+ - System Bat Voltages Test...
+        Bat Voltage Detected
+
+ - RTU Real Time Clock(HWClock) Test...
+        Current RTC Time:  2021-11-09 10:27:19.469059+03
+
+ End of Self Test routine.

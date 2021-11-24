@@ -1,0 +1,1 @@
+/home/RTU_POST/Test_Logs/log_RTU_POST.log

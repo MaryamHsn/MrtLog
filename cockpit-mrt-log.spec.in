@@ -1,7 +1,7 @@
-Name: cockpit-starter-kit
+Name: cockpit-mrt-log
 Version: %{VERSION}
 Release: 1%{?dist}
-Summary: Cockpit Starter Kit Example Module
+Summary: Cockpit Mrt Log Example Module
 License: LGPLv2+
 
 Source0: https://github.com/cockpit-project/starter-kit/releases/download/%{version}/%{name}-%{version}.tar.xz
@@ -16,7 +16,7 @@ Requires: cockpit-system
 %define debug_package %{nil}
 
 %description
-Cockpit Starter Kit Example Module
+Cockpit Mrt log Example Module
 
 %prep
 %setup -q -n %{name}
