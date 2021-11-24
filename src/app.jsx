@@ -19,7 +19,7 @@
 
 import cockpit from 'cockpit';
 import React from 'react';
-import { Alert, Card, CardTitle, CardBody } from '@patternfly/react-core';
+import {  Card, CardTitle } from '@patternfly/react-core';
 
 const _ = cockpit.gettext;
 
@@ -37,7 +37,7 @@ export class Application extends React.Component {
         return (
             <Card>
                 <CardTitle>Mrt Log</CardTitle>
-                
+              
             </Card>
         );
     }
