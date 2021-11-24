@@ -33,17 +33,17 @@ export class Application extends React.Component {
         });
     }
 
-    render() {
-        return (
-            <Card>
-                <CardTitle>Mrt Log</CardTitle>
-                <CardBody>
-                    <Alert
-                        variant="info"
-                        title={ cockpit.format(_("Running on $0"), this.state.hostname) }
-                    />
-                </CardBody>
-            </Card>
-        );
-    }
+    //render() {
+    //    return (
+    //        <Card>
+    //            <CardTitle>Mrt Log</CardTitle>
+    //            <CardBody>
+    //                <Alert
+    //                    variant="info"
+    //                    title={ cockpit.format(_("Running on $0"), this.state.hostname) }
+    //                />
+    //            </CardBody>
+    //        </Card>
+    //    );
+    //}
 }
