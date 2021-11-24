@@ -33,8 +33,8 @@ export class Application extends React.Component {
         });
     }
 
-    //render() {
-    //    return (
+    render() {
+        return (
     //        <Card>
     //            <CardTitle>Mrt Log</CardTitle>
     //            <CardBody>
@@ -44,6 +44,6 @@ export class Application extends React.Component {
     //                />
     //            </CardBody>
     //        </Card>
-    //    );
-    //}
+        );
+    }
 }
