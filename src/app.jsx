@@ -37,7 +37,6 @@ export class Application extends React.Component {
         return (
             <Card>
                 <CardTitle>Mrt Log</CardTitle>
-              
             </Card>
         );
     }
