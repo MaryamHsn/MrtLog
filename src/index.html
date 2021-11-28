@@ -23,21 +23,42 @@ along with this package; If not, see <http://www.gnu.org/licenses/>.
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="index.css">
+
+    <script type="text/javascript" src="../base1/cockpit.js"></script>
+    <script type="text/javascript" src="po.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </head>
 
 <body class="pf-m-redhat-font">
-     
-     
+    <div id="app"></div>
+
+    <input type="file" name="inputfile"
+           id="inputfile">
+    <br>
+    <pre id="output"></pre> 
     <!--<div id="list">
         <p>
             <iframe src="log_RTU_POST.log.txt" frameborder="0" height="500"
                     width="95%"></iframe>
         </p>
     </div>--> 
-    <object data="/log_RTU_POST.log.txt" width="100%" height="400">
-        Not supported 
-    </object> 
+    <!--<object data="log_RTU_POST.log" width="300" height="400">
+        Not supported
+    </object>--> 
 
+    <script type="text/javascript">
+        document.getElementById('inputfile')
+            .addEventListener('change', function () {
+
+                var fr = new FileReader();
+                fr.onload = function () {
+                    document.getElementById('output')
+                        .textContent = fr.result;
+                }
+
+                fr.readAsText(this.files[0]);
+            })
+    </script>
 </body>
 
 </html>
