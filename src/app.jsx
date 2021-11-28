@@ -38,7 +38,10 @@ export class Application extends React.Component {
             <Card>
                 <CardTitle>MRT Log</CardTitle>
                 <CardBody>
-                    <Alert/>
+                    <Alert
+                        variant="info"
+                        title={cockpit.format(_("Log of Rtu"), this.state.hostname)}
+                    />
                 </CardBody>
             </Card>
         );
