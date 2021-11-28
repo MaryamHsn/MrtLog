@@ -36,12 +36,9 @@ export class Application extends React.Component {
     render() {
         return (
             <Card>
-                <CardTitle>Starter Kit</CardTitle>
+                <CardTitle>MRT Log</CardTitle>
                 <CardBody>
-                    <Alert
-                        variant="info"
-                        title={cockpit.format(_("Running on $0"), this.state.hostname)}
-                    />
+                    <Alert/>
                 </CardBody>
             </Card>
         );
