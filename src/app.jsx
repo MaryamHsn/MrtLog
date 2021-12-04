@@ -18,7 +18,7 @@
  */
 
 import cockpit from 'cockpit';
-import React from 'react';
+import React, { Component } from 'react';
 
 const _ = cockpit.gettext;
 
@@ -32,22 +32,19 @@ export class Application extends React.Component {
         });
     }
 
-    showFile = async (e) => {
-        e.preventDefault()
-        const reader = new FileReader()
-        reader.onload = async (e) => {
-            const text = (e.target.result)
-            console.log(text)
-            alert(text)
-        };
-        reader.readAsText(e.target.files[0])
-    }
-
     render() {
         return (
             <div>
-                <input type="file" onChange={(e) => this.showFile(e)} />
+                <button onClick={this.handleClick} className="LoadMyFile" name="button" variant="flat">test string</button>
             </div>
-        );
+        )
+    }
+    handleClick = () => {
+
+        fetch('/log_RTU_POST.log.txt')
+            .then((r) => r.text())
+            .then(text => {
+                console.log(text);
+            })
     }
 }
