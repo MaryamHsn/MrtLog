@@ -18,8 +18,7 @@
  */
 
 import cockpit from 'cockpit';
-import React, { Component } from 'react';
-import { Alert, Card, CardTitle, CardBody } from '@patternfly/react-core';
+import React, { Component } from 'react'; 
 
 const _ = cockpit.gettext;
 
