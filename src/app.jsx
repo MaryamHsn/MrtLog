@@ -17,33 +17,37 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { Component } from 'react';
+import cockpit from 'cockpit';
+import React from 'react';
+
+const _ = cockpit.gettext;
 
 export class Application extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
+        this.state = { hostname: _("Unknown") };
+
+        cockpit.file('/etc/hostname').watch(content => {
+            this.setState({ hostname: content.trim() });
+        });
     }
 
     showFile = async (e) => {
-            e.preventDefault()
-            const reader = new FileReader()
-            reader.onload = async (e) => {
-                const text = (e.target.result)
-                console.log(text)
-                alert(text)
-            };
-            reader.readAsText(e.target.files[0])
-        }
-    
-    render = () => {
-
-        return (<div>
-            <input type="file" onChange={(e) => this.showFile(e)} />
-        </div>
-        )
-    }
+        e.preventDefault()
+        const reader = new FileReader()
+        reader.onload = async (e) => {
+            const text = (e.target.result)
+            console.log(text)
+            alert(text)
+        };
+        reader.readAsText(e.target.files[0])
     }
 
-    
-
-
+    render() {
+        return (
+            <div>
+                <input type="file" onChange={(e) => this.showFile(e)} />
+            </div>
+        );
+    }
+}
