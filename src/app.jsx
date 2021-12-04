@@ -18,7 +18,7 @@
  */
 
 import cockpit from 'cockpit';
-import React, { Component } from 'react';
+import React from 'react';
 
 const _ = cockpit.gettext;
 
@@ -26,7 +26,6 @@ export class Application extends React.Component {
     constructor() {
         super();
         this.state = { hostname: _("Unknown") };
-
         cockpit.file('/etc/hostname').watch(content => {
             this.setState({ hostname: content.trim() });
         });
@@ -40,7 +39,6 @@ export class Application extends React.Component {
         )
     }
     handleClick = () => {
-
         fetch('/log_RTU_POST.log.txt')
             .then((r) => r.text())
             .then(text => {
