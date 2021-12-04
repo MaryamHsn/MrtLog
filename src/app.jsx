@@ -17,19 +17,13 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-import cockpit from 'cockpit';
+
 import React, { Component } from 'react'; 
 
-const _ = cockpit.gettext;
 
 export class Application extends React.Component {
-    constructor() {
-        super();
-        this.state = { hostname: _("Unknown") };
-
-        cockpit.file('/etc/hostname').watch(content => {
-            this.setState({ hostname: content.trim() });
-        });
+    constructor(props) {
+        super(props);
     }
     showFile = async (e) => {
         e.preventDefault()
