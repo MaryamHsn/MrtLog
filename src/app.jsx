@@ -36,7 +36,7 @@ export class Application extends React.Component {
             <div>
                 <button onClick={this.handleClick} className="LoadMyFile" name="button" variant="flat">test string</button>
             </div>
-        )
+        );
     }
 
     handleClick = () => {
