@@ -38,11 +38,12 @@ export class Application extends React.Component {
             </div>
         )
     }
+
     handleClick = () => {
         fetch('./log_RTU_POST.log.txt')
-            .then((r) => r.text())
-            .then(text => {
-                console.log(text);
-            })
+                .then((r) => r.text())
+                .then(text => {
+                    console.log(text);
+                });
     }
 }
