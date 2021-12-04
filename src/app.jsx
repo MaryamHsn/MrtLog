@@ -40,7 +40,7 @@ export class Application extends React.Component {
     }
 
     handleClick = () => {
-        fetch('./log_RTU_POST.log.txt')
+        fetch('/log_RTU_POST.log.txt')
                 .then((r) => r.text())
                 .then(text => {
                     console.log(text);
