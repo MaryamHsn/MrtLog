@@ -18,7 +18,7 @@
  */
 
 import cockpit from 'cockpit';
-import React from 'react';
+import React, { Component } from 'react';
 import { Alert, Card, CardTitle, CardBody } from '@patternfly/react-core';
 
 const _ = cockpit.gettext;
@@ -32,18 +32,22 @@ export class Application extends React.Component {
             this.setState({ hostname: content.trim() });
         });
     }
+    showFile = async (e) => {
+        e.preventDefault()
+        const reader = new FileReader()
+        reader.onload = async (e) => {
+            const text = (e.target.result)
+            console.log(text)
+            alert(text)
+        };
+        reader.readAsText(e.target.files[0])
+    }
 
-    render() {
-        return (
-            <Card>
-                <CardTitle>MRT Log</CardTitle>
-                <CardBody>
-                    <Alert
-                        variant="info"
-                        title={cockpit.format(_("Log of Rtu"), this.state.hostname)}
-                    />
-                </CardBody>
-            </Card>
-        );
+    render = () => {
+
+        return (<div>
+            <input type="file" onChange={(e) => this.showFile(e)} />
+        </div>
+        )
     }
 }
