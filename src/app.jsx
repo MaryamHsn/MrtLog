@@ -17,25 +17,24 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-
-import React, { Component } from 'react'; 
-
+import React, { Component } from 'react';
 
 export class Application extends React.Component {
     constructor(props) {
         super(props);
     }
-    showFile = async (e) => {
-        e.preventDefault()
-        const reader = new FileReader()
-        reader.onload = async (e) => {
-            const text = (e.target.result)
-            console.log(text)
-            alert(text)
-        };
-        reader.readAsText(e.target.files[0])
-    }
 
+    showFile = async (e) => {
+            e.preventDefault()
+            const reader = new FileReader()
+            reader.onload = async (e) => {
+                const text = (e.target.result)
+                console.log(text)
+                alert(text)
+            };
+            reader.readAsText(e.target.files[0])
+        }
+    
     render = () => {
 
         return (<div>
@@ -43,4 +42,8 @@ export class Application extends React.Component {
         </div>
         )
     }
-}
+    }
+
+    
+
+
