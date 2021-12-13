@@ -19,6 +19,9 @@
 
 import cockpit from 'cockpit';
 import React from 'react';
+import { Alert, Card, CardTitle, CardBody } from '@patternfly/react-core';
+import cockpit from 'cockpit';
+import React from 'react';
 
 const _ = cockpit.gettext;
 
@@ -33,14 +36,24 @@ export class Application extends React.Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.handleClick} className="LoadMyFile" name="button" variant="secondary">test string</button>
-            </div> 
+            <Card>
+                <CardTitle>Mrt Log</CardTitle>
+                <CardBody>
+                    <Alert
+                        variant="info"
+                        title={cockpit.format(_("Running on $0"), this.state.hostname)}
+                    />
+
+                    <div>
+                        <button onClick={this.handleClick} className="LoadMyFile" name="button" variant="secondary">test string</button>
+                    </div>
+                </CardBody>
+            </Card>
         );
     }
 
     handleClick = () => {
-        fetch('../log_RTU_POST.log.txt')
+        fetch('/log_RTU_POST.log.txt')
                 .then((r) => r.text())
                 .then(text => {
                     console.log(text);
