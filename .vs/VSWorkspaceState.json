@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\test\\browser"
+    "\\src"
   ],
-  "SelectedNode": "\\src\\index.js",
+  "SelectedNode": "\\src\\log_RTU_POST.log.txt",
   "PreviewInSolutionExplorer": false
 }

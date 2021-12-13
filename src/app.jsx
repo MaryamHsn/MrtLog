@@ -34,13 +34,13 @@ export class Application extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleClick} className="LoadMyFile" name="button" variant="flat">test string</button>
-            </div>
+                <button onClick={this.handleClick} className="LoadMyFile" name="button" variant="secondary">test string</button>
+            </div> 
         );
     }
 
     handleClick = () => {
-        fetch('/log_RTU_POST.log.txt')
+        fetch('../log_RTU_POST.log.txt')
                 .then((r) => r.text())
                 .then(text => {
                     console.log(text);
