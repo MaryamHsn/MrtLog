@@ -36,7 +36,7 @@ export class Application extends React.Component {
     render() {
         return (
             <Card>
-                <CardTitle>Mrt Log</CardTitle>
+                <CardTitle>Starter Kit</CardTitle>
                 <CardBody>
                     <Alert
                         variant="info"
