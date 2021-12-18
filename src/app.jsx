@@ -17,16 +17,18 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from "react";
+import cockpit from 'cockpit'; 
+import React, { Component } from 'react';
 
-class Application extends React.Component {
-	constructor(props) {
+export class Application extends React.Component {
+
+    constructor(props) {
 		super(props);
 
 		this.state = {
 			text: ""
 		};
-	}
+    }
 
 	componentDidMount() {
 		this.readTextFile(this.props.txt);
@@ -58,5 +60,5 @@ class Application extends React.Component {
 		);
 	}
 }
-
+ 
 export default Application;
