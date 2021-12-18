@@ -16,18 +16,15 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
-
-import cockpit from 'cockpit'; 
-import React, { Component } from 'react';
+; 
+import React from 'react';
 
 export class Application extends React.Component {
-
     constructor(props) {
-		super(props);
-
-		this.state = {
-			text: ""
-		};
+	super(props);
+	this.state = {
+	text: ""
+	};
     }
 
 	componentDidMount() {
