@@ -18,32 +18,31 @@
  */
 
 import cockpit from 'cockpit';
-import React from 'react';
-import { Alert, Card, CardTitle, CardBody } from '@patternfly/react-core';
+import React from 'react'; 
 
 const _ = cockpit.gettext;
 
 export class Application extends React.Component {
-    constructor() {
-        super();
-        this.state = { hostname: _("Unknown") };
-
-        cockpit.file('/etc/hostname').watch(content => {
-            this.setState({ hostname: content.trim() });
-        });
+    constructor(props) {
+        super(props);
     }
 
-    render() {
-        return (
-            <Card>
-                <CardTitle>Starter Kit</CardTitle>
-                <CardBody>
-                    <Alert
-                        variant="info"
-                        title={cockpit.format(_("Running on $0"), this.state.hostname)}
-                    />
-                </CardBody>
-            </Card>
-        );
+    showFile = async (e) => {
+        e.preventDefault()
+        const reader = new FileReader()
+        reader.onload = async (e) => {
+            const text = (e.target.result)
+            console.log(text)
+            alert(text)
+        };
+        reader.readAsText(e.target.files[0])
+    }
+
+    render = () => {
+
+        return (<div>
+            <input type="file" onChange={(e) => this.showFile(e)} />
+        </div>
+        )
     }
 }
