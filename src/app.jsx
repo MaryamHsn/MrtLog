@@ -32,11 +32,12 @@ export class Application extends React.Component {
     }
 
     readTextFile = file => {
-        var rawFile = new XMLHttpRequest();
+        let rawFile = new XMLHttpRequest();
         rawFile.open("GET", file, false);
         rawFile.onreadystatechange = () => {
             if (rawFile.readyState === 4) {
                 if (rawFile.status === 200 || rawFile.status === 0) {
+                    let allText = rawFile.responseText;
                     this.setState({
                         text: allText
                     });
