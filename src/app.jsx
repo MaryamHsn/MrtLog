@@ -16,44 +16,44 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
-; 
+
 import React from 'react';
 
 export class Application extends React.Component {
     constructor(props) {
-	super(props);
-	this.state = {
-	text: ""
-	};
+        super(props);
+        this.state = {
+        text: ""
+        };
     }
 
-	componentDidMount() {
-		this.readTextFile(this.props.txt);
+    componentDidMount() {
+        this.readTextFile(this.props.txt);
 	}
 
-	readTextFile = file => {
-		var rawFile = new XMLHttpRequest();
-		rawFile.open("GET", file, false);
-		rawFile.onreadystatechange = () => {
-			if (rawFile.readyState === 4) {
-				if (rawFile.status === 200 || rawFile.status == 0) {
-					var allText = rawFile.responseText;
-					this.setState({
-						text: allText
-					});
-				}
-			}
-		};
-		rawFile.send(null);
-	};
+    readTextFile = file => {
+     var rawFile = new XMLHttpRequest();
+     rawFile.open("GET", file, false);
+     rawFile.onreadystatechange = () => {
+         if (rawFile.readyState === 4) {
+             if (rawFile.status === 200 || rawFile.status == 0) {
+                 var allText = rawFile.responseText;
+                 this.setState({
+                     text: allText
+                 });
+             }
+         }
+     };
+     rawFile.send(null);
+};
 
-	render() {
-		return (
-			<div>
-				{this.state.text.split("\n").map((item, key) => {
-					return <span key={key}>{item}<br /></span>;
-				})}
-			</div>
+render() {
+     return (
+         <div>
+             {this.state.text.split("\n").map((item, key) => {
+                 return <span key={key}>{item}<br /></span>;
+             })}
+         </div>
 		);
 	}
 }
