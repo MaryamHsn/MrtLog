@@ -17,43 +17,33 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
+import cockpit from 'cockpit';
 import React from 'react';
+import { Alert, Card, CardTitle, CardBody } from '@patternfly/react-core';
+
+const _ = cockpit.gettext;
 
 export class Application extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            text: ""
-        };
-    }
+    constructor() {
+        super();
+        this.state = { hostname: _("Unknown") };
 
-    componentDidMount() {
-        this.readTextFile(this.props.txt);
+        cockpit.file('/etc/hostname').watch(content => {
+            this.setState({ hostname: content.trim() });
+        });
     }
-
-    readTextFile = file => {
-        const rawFile = new XMLHttpRequest();
-        rawFile.open("GET", file, false);
-        rawFile.onreadystatechange = () => {
-            if (rawFile.readyState === 4) {
-                if (rawFile.status === 200 || rawFile.status === 0) {
-                    const allText = rawFile.responseText;
-                    this.setState({
-                        text: allText
-                    });
-                }
-            }
-        };
-        rawFile.send(null);
-    };
 
     render() {
         return (
-            <div>
-                {this.state.text.split("\n").map((item, key) => {
-                    return <span key={key}>{item}<br /></span>;
-                })}
-            </div>
+            <Card>
+                <CardTitle>Mrt Log</CardTitle>
+                <CardBody>
+                    <Alert
+                        variant="info"
+                        title={cockpit.format(_("Running on $0"), this.state.hostname)}
+                    />
+                </CardBody>
+            </Card>
         );
     }
 }
