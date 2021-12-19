@@ -17,33 +17,59 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-import cockpit from 'cockpit';
-import React from 'react';
-import { Alert, Card, CardTitle, CardBody } from '@patternfly/react-core';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 
-const _ = cockpit.gettext;
+import "./styles.css";
 
-export class Application extends React.Component {
-    constructor() {
-        super();
-        this.state = { hostname: _("Unknown") };
+function App() {
+    const [text, setText] = useState();
 
-        cockpit.file('/etc/hostname').watch(content => {
-            this.setState({ hostname: content.trim() });
-        });
-    }
+    const test = e => {
+        console.log(e.target.files);
+    };
 
-    render() {
-        return (
-            <Card>
-                <CardTitle>Mrt Log</CardTitle>
-                <CardBody>
-                    <Alert
-                        variant="info"
-                        title={cockpit.format(_("Running on $0"), this.state.hostname)}
-                    />
-                </CardBody>
-            </Card>
-        );
-    }
+    let fileReader;
+
+    const onChange = e => {
+        let file = e.target.files;
+        fileReader = new FileReader();
+        fileReader.onloadend = handleFileRead;
+        fileReader.readAsText(file[0]);
+    };
+
+    const deleteLines = (string, n = 1) => {
+        console.log("remove lines");
+        return string.replace(new RegExp(`(?:.*?\n){${n - 1}}(?:.*?\n)`), "");
+    };
+
+    const cleanContent = string => {
+        string = string.replace(/^\s*[\r\n]/gm, "");
+        let array = string.split(new RegExp(/[\r\n]/gm));
+        console.log(array);
+        array.splice(0, 3);
+        array.splice(-3);
+        return array.join("\n");
+    };
+
+    const handleFileRead = e => {
+        let content = fileReader.result;
+        // let text = deleteLines(content, 3);
+        content = cleanContent(content);
+        // … do something with the 'content' …
+        setText(content);
+    };
+    return (
+        <div className="App">
+            <div class="upload-btn-wrapper">
+                <button class="btn">Upload a file</button>
+                <input type="file" name="myfile" onChange={onChange} />
+            </div>
+            {text && <pre>{text}</pre>}
+        </div>
+    );
 }
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+
