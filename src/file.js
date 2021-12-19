@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from "react"; 
 
 import "./styles.css";
 
 function App() {
     const [text, setText] = useState();
-
 
     let fileReader;
 
@@ -15,7 +13,6 @@ function App() {
         fileReader.onloadend = handleFileRead;
         fileReader.readAsText(file[0]);
     };
-
 
     const cleanContent = string => {
         string = string.replace(/^\s*[\r\n]/gm, "");
