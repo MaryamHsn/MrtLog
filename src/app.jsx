@@ -20,7 +20,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-import "./styles.css";
+import "./app.scss";
 
 function App() {
     const [text, setText] = useState();
