@@ -21,10 +21,14 @@ import React from 'react';
 import File from './file.js';
 
 export class Application extends React.Component {
+    fileHandler = () => {
+        console.log('hello');
+    }
     render() {
         return (
             <div>
-                <File />
+                <button className="btn">Upload a file</button>
+                <input type="file" name="myfile" onClice={this.fileHandler} />
             </div>
         );
     }
