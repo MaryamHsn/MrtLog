@@ -17,18 +17,18 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import File from './file.js';
+import React from 'react'; 
 
 export class Application extends React.Component {
     handelFile= () => {
         console.log('hello');
     }
+
     render() {
         return (
             <div>
                 <button className="btn" onClick={this.handelFile}>Upload a file</button>
-                <input type="file" name="myfile" onClice={onChange} />
+                <input type="file" name="myfile" onClick={this.handelFile} />
             </div>
         );
     }
