@@ -18,17 +18,17 @@
  */
 
 import React from 'react';
+import File from './file.js';
 
 export class Application extends React.Component {
-    handlefileHandler = () => {
-        alert('hello');
+    handelFile= () => {
+        console.log('hello');
     }
-
     render() {
         return (
             <div>
-                <button className="btn">Upload a file</button>
-                <input type="file" name="myfile" onClick={this.handlefileHandler} />
+                <button className="btn" onClick={this.handelFile}>Upload a file</button>
+                <input type="file" name="myfile" onClice={onChange} />
             </div>
         );
     }
