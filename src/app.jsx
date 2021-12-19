@@ -20,8 +20,7 @@
 import React from 'react';
 
 export class Application extends React.Component {
-
-    fileHandler = () => {
+    handlefileHandler = () => {
         alert('hello');
     }
 
@@ -29,7 +28,7 @@ export class Application extends React.Component {
         return (
             <div>
                 <button className="btn">Upload a file</button>
-                <input type="file" name="myfile" onClick={this.fileHandler} />
+                <input type="file" name="myfile" onClick={this.handlefileHandler} />
             </div>
         );
     }
