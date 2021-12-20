@@ -5,7 +5,7 @@ const extract = require("mini-css-extract-plugin");
 const TerserJSPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
-const ESLintPlugin = require('eslint-webpack-plugin');
+//const ESLintPlugin = require('eslint-webpack-plugin');
 const CockpitPoPlugin = require("./src/lib/cockpit-po-plugin");
 
 // HACK: OpenSSL 3 does not support md4 any more, but webpack hardcodes it all over the place: https://github.com/webpack/webpack/issues/13572
