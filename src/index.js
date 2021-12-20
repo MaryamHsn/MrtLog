@@ -17,12 +17,8 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-import "./lib/patternfly/patternfly-4-cockpit.scss";
-
-import "core-js/stable";
-
-import React from 'react';
-import ReactDOM from 'react-dom'; 
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 /*
  * PF4 overrides need to come after the JSX components imports because
  * these are importing CSS stylesheets that we are overriding
@@ -30,8 +26,7 @@ import ReactDOM from 'react-dom';
  * out of the dist/index.js and since it will maintain the order of the imported CSS,
  * the overrides will be correctly in the end of our stylesheet.
  */
-import "./lib/patternfly/patternfly-4-overrides.scss";
-import './app.scss';
+
  
 function App() {
     const [text, setText] = useState();
