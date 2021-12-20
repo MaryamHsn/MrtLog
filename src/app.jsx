@@ -17,12 +17,12 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react'; 
+import React from 'react';
 
 export class Application extends React.Component {
     render() {
         return (
-            <div> 
+            <div>
                 <p>input type="file" name="myfile" onClick={this.handelFile} </p>
             </div>
         );
