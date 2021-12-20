@@ -27,31 +27,21 @@ import ReactDOM from "react-dom";
  * the overrides will be correctly in the end of our stylesheet.
  */
 
- 
 function App() {
     const [text, setText] = useState();
-
-    const test = e => {
-        console.log(e.target.files);
-    };
 
     let fileReader;
 
     const onChange = e => {
-        let file = e.target.files;
+        const file = e.target.files;
         fileReader = new FileReader();
         fileReader.onloadend = handleFileRead;
         fileReader.readAsText(file[0]);
     };
 
-    const deleteLines = (string, n = 1) => {
-        console.log("remove lines");
-        return string.replace(new RegExp(`(?:.*?\n){${n - 1}}(?:.*?\n)`), "");
-    };
-
     const cleanContent = string => {
         string = string.replace(/^\s*[\r\n]/gm, "");
-        let array = string.split(new RegExp(/[\r\n]/gm));
+        const array = string.split(new RegExp(/[\r\n]/gm));
         console.log(array);
         array.splice(0, 3);
         array.splice(-3);
@@ -67,8 +57,8 @@ function App() {
     };
     return (
         <div className="App">
-            <div class="upload-btn-wrapper">
-                <button class="btn">Upload a file</button>
+            <div className="upload-btn-wrapper">
+                <button className="btn">Upload a file</button>
                 <input type="file" name="myfile" onChange={onChange} />
             </div>
             {text && <pre>{text}</pre>}
@@ -78,8 +68,3 @@ function App() {
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
-
-
-//document.addEventListener("DOMContentLoaded", function () {
-//    ReactDOM.render(React.createElement(Application, {}), document.getElementById('app'));
-//});
