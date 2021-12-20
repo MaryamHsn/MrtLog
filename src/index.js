@@ -17,8 +17,13 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import "./lib/patternfly/patternfly-4-cockpit.scss";
+
+import "core-js/stable";
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Application } from './app.jsx';
 /*
  * PF4 overrides need to come after the JSX components imports because
  * these are importing CSS stylesheets that we are overriding
@@ -26,45 +31,9 @@ import ReactDOM from "react-dom";
  * out of the dist/index.js and since it will maintain the order of the imported CSS,
  * the overrides will be correctly in the end of our stylesheet.
  */
+import "./lib/patternfly/patternfly-4-overrides.scss";
+import './app.scss';
 
-function App() {
-    const [text, setText] = useState();
-
-    let fileReader;
-
-    const onChange = e => {
-        const file = e.target.files;
-        fileReader = new FileReader();
-        fileReader.onloadend = handleFileRead;
-        fileReader.readAsText(file[0]);
-    };
-
-    const cleanContent = string => {
-        string = string.replace(/^\s*[\r\n]/gm, "");
-        const array = string.split(new RegExp(/[\r\n]/gm));
-        console.log(array);
-        array.splice(0, 3);
-        array.splice(-3);
-        return array.join("\n");
-    };
-
-    const handleFileRead = e => {
-        let content = fileReader.result;
-        // let text = deleteLines(content, 3);
-        content = cleanContent(content);
-        // … do something with the 'content' …
-        setText(content);
-    };
-    return (
-        <div className="App">
-            <div className="upload-btn-wrapper">
-                <button className="btn">Upload a file</button>
-                <input type="file" name="myfile" onChange={onChange} />
-            </div>
-            {text && <pre>{text}</pre>}
-        </div>
-    );
-}
-
-const rootElement = document.getElementById("app");
-ReactDOM.render(<App />, rootElement);
+document.addEventListener("DOMContentLoaded", function () {
+    ReactDOM.render(React.createElement(Application, {}), document.getElementById('app'));
+});

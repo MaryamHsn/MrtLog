@@ -20,15 +20,10 @@
 import React from 'react'; 
 
 export class Application extends React.Component {
-    handelFile= () => {
-        console.log('hello');
-    }
-
     render() {
         return (
-            <div>
-                <button className="btn" onClick={this.handelFile}>Upload a file</button>
-                <input type="file" name="myfile" onClick={this.handelFile} />
+            <div> 
+                <p>input type="file" name="myfile" onClick={this.handelFile} </p>
             </div>
         );
     }
