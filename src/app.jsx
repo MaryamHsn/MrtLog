@@ -23,8 +23,17 @@ export class Application extends React.Component {
     render() {
         return (
             <div>
-                <p>input type="file" name="myfile" onClick={this.handelFile} </p>
+                <button onClick={this.handleClick} className="LoadMyFile" name="button" variant="flat">test string</button>
             </div>
         );
+    }
+
+    handleClick = () => {
+
+        fetch('/sample.txt')
+            .then((r) => r.text())
+            .then(text => {
+                console.log(text);
+            })
     }
 }
