@@ -19,21 +19,29 @@
 
 import React from 'react';
 
+//export class Application extends React.Component {
+//    render() {
+//        return (
+//            <div>
+//                <button onClick={this.handleClick} className="LoadMyFile" name="button" variant="flat">test string</button>
+//            </div>
+//        );
+//    }
+//    handleClick = () => {
+//        fetch('/sample.txt')
+//            .then((r) => r.text())
+//            .then(text => {
+//                    console.log(text);
+//                })
+//        }
+//}
+
 export class Application extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleClick} className="LoadMyFile" name="button" variant="flat">test string</button>
+                <button className="LoadMyFile" name="button" variant="flat">test string</button>
             </div>
         );
-    }
-
-    handleClick = () => {
-
-        fetch('/sample.txt')
-            .then((r) => r.text())
-            .then(text => {
-                console.log(text);
-            })
     }
 }
